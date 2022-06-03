@@ -175,16 +175,9 @@ const requirementPackagesInstall = async (projectName) => {
 };
 
 const podInstall = async (projectName) => {
-  let yarnCommand;
-  if (process.platform === 'win32') {
-    yarnCommand = `cd ${process.cwd()}\\${projectName} && pod install`;
-  } else {
-    yarnCommand = `cd ${process.cwd()}/${projectName} && pod install`;
-  }
-
-  return await execute(yarnCommand, {
-    successMessage: '✓ Requirement packages successfully installed.',
-    startMessage: 'Requirement packages installing...'
+  return await execute(`cd ${process.cwd()}/${projectName}/ios && pod install`, {
+    successMessage: '✓ Pods successfully installed.',
+    startMessage: 'Pods installing...'
   })
     .then(() => {
       return true;
