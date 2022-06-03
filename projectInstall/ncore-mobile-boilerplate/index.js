@@ -175,7 +175,7 @@ const requirementPackagesInstall = async (projectName) => {
 };
 
 const podInstall = async (projectName) => {
-  return await execute(`cd ${process.cwd()}/${projectName}/ios && pod install`, {
+  return await execute(`cd ${process.cwd()}/${projectName}/ios && pod install --repo-update`, {
     successMessage: '✓ Pods successfully installed.',
     startMessage: 'Pods installing...'
   })
