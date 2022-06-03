@@ -177,7 +177,7 @@ const requirementPackagesInstall = async (projectName) => {
 const rmAppJS = async (projectName) => {
   let rmCommand;
   if (process.platform === 'win32') {
-    rmCommand = `rmdir ${process.cwd()}\\${projectName}\\App.js`;
+    rmCommand = `del /f ${process.cwd()}\\${projectName}\\App.js`;
   } else {
     rmCommand = `rm -rf ${process.cwd()}/${projectName}/App.js`;
   }
