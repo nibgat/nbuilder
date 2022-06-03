@@ -1,43 +1,44 @@
 {
-	"name": "nbuilder",
-	"description": "Project or structure builder for NİBGAT® and NİBGAT® | Community.",
-	"version": "0.1.0-pre-alpha.1",
-	"license": "MIT",
-	"bin": {
-		"nbuilder": "index.js"
-	},
-	"author": {
-		"name": "nibgat",
-		"email": "contact@nibgat.com",
-		"url": "https://www.nibgat.com"
-	},
-	"keywords": [
-		"nbuilder",
-		"nibgat"
-	],
-	"files": [
-		"index.js",
-		"utils"
-	],
-	"scripts": {
-		"format": "prettier --write \"./**/*.{js,json}\""
-	},
-	"dependencies": {
-		"chalk": "^4.1.2",
-		"child-process": "^1.0.2",
-		"cli-alerts": "^1.2.2",
-		"cli-handle-error": "^4.4.0",
-		"cli-handle-unhandled": "^1.1.1",
-		"cli-meow-help": "^3.1.0",
-		"cli-welcome": "^2.2.2",
-		"clui": "^0.3.6",
-		"figlet": "^1.5.2",
-		"files": "^2.1.1",
-		"inquirer": "^8.2.4",
-		"meow": "^9.0.0",
-		"simple-git": "^3.7.1"
-	},
-	"devDependencies": {
-		"prettier": "^2.6.2"
-	}
+  "name": "nbuilder",
+  "description": "Project or structure builder for NİBGAT® and NİBGAT® | Community.",
+  "version": "0.1.0-alpha.0",
+  "license": "MIT",
+  "bin": {
+    "nbuilder": "index.js"
+  },
+  "author": {
+    "name": "nibgat",
+    "email": "contact@nibgat.com",
+    "url": "https://www.nibgat.com"
+  },
+  "keywords": [
+    "nbuilder",
+    "nibgat"
+  ],
+  "files": [
+    "index.js",
+    "utils",
+    "projectInstall"
+  ],
+  "scripts": {
+    "format": "prettier --write \"./**/*.{js,json}\""
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "child-process": "^1.0.2",
+    "cli-alerts": "^1.2.2",
+    "cli-handle-error": "^4.4.0",
+    "cli-handle-unhandled": "^1.1.1",
+    "cli-meow-help": "^3.1.0",
+    "cli-welcome": "^2.2.2",
+    "clui": "^0.3.6",
+    "figlet": "^1.5.2",
+    "files": "^2.1.1",
+    "inquirer": "^8.2.4",
+    "meow": "^9.0.0",
+    "simple-git": "^3.7.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  }
 }
