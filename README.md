@@ -21,9 +21,9 @@ nbuilder help
 nbuilder -p PACKAGE_NAME // or nbuilder --package PACKAGE_NAME
 ```
 
-###### Currently supported packages:
+###### Currently supported packages: ( package-name: description )
 ```
-* React-Native projects with ncore-mobile + react-navigation.
+* ncore-mobile-boilerplate: React-Native project with ncore-mobile + react-navigation.
 ```
 
 Developed by NİBGAT®
