@@ -18,10 +18,10 @@ nbuilder help
 
 ###### How to run:
 ```
-nbuilder -p PACKAGE_NAME // or nbuilder --package PACKAGE_NAME
+nbuilder -p PROJECT_NAME // or nbuilder --project PROJECT_NAME
 ```
 
-###### Currently supported packages: ( package-name: description )
+###### Currently supported projects: ( project-name: description )
 ```
 * ncore-mobile-boilerplate: React-Native project with ncore-mobile + react-navigation.
 ```
