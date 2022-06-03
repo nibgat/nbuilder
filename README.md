@@ -20,6 +20,7 @@ nbuilder help
 * nodejs version 16.13.1+
 * yarn
 * cocoapods
+* git account ( You must login to a github account and add the access key to the operating system. )
 
 ###### How to run:
 ```
