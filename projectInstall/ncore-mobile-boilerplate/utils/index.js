@@ -6,10 +6,6 @@ const execute = (comm, {
     successMessage,
     startMessage
 }) => {
-    if(process.platform !== "win32") {
-        comm = `sudo ${comm}`;
-    }
-
     return new Promise((resolve, reject) => {
         const status = new clui.Spinner(startMessage);
         status.start();
