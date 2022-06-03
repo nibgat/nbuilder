@@ -73,3 +73,4 @@ assets/img/.DS_Store
 
 /.history
 /package-lock.json
+/yarn.lock
