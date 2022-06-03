@@ -174,6 +174,26 @@ const requirementPackagesInstall = async (projectName) => {
     });
 };
 
+const rmAppJS = async (projectName) => {
+  let rmCommand;
+  if (process.platform === 'win32') {
+    rmCommand = `rmdir ${process.cwd()}\\${projectName}\\App.js`;
+  } else {
+    rmCommand = `rm -rf ${process.cwd()}/${projectName}/App.js`;
+  }
+
+  return await execute(rmCommand, {
+    successMessage: '✓ App.js successfully removed.',
+    startMessage: 'App.js removing...'
+  })
+    .then(() => {
+      return true;
+    })
+    .catch(() => {
+      return false;
+    });
+};
+
 const podInstall = async (projectName) => {
   return await execute(`cd ${process.cwd()}/${projectName}/ios && pod install --repo-update`, {
     successMessage: '✓ Pods successfully installed.',
@@ -232,6 +252,11 @@ const createNCoreMobileBP = async () => {
 
   const requirementPackagesInstallResponse = await requirementPackagesInstall(projectName);
   if (!requirementPackagesInstallResponse) {
+    return;
+  }
+
+  const rmAppJSResponse = await rmAppJS(projectName);
+  if (!rmAppJSResponse) {
     return;
   }
 
