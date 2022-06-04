@@ -24,7 +24,18 @@ nbuilder help
 
 ###### How to run:
 ```
+// This method is for the spesifically NİBGAT® Projects.
 nbuilder -p PROJECT_NAME // or nbuilder --project PROJECT_NAME
+```
+
+###### If you want use the custom source:
+```
+// Only supported Github and NİBGAT® | Git
+nbuilder -s github -p nibgat/nbuilder
+
+or
+
+nbuilder -s nibgat -p nibgat/test
 ```
 
 ###### Currently supported projects: ( project-name: description )
