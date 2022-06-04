@@ -1,43 +1,47 @@
-const meow = require('meow');
-const meowHelp = require('cli-meow-help');
+const meow = require("meow");
+const meowHelp = require("cli-meow-help");
 
 const flags = {
 	clear: {
-		type: `boolean`,
+		type: "boolean",
 		default: true,
-		alias: `c`,
-		desc: `Clear the console`
+		alias: "c",
+		desc: "Clear the console"
 	},
 	noClear: {
-		type: `boolean`,
+		type: "boolean",
 		default: false,
-		desc: `Don't clear the console`
+		desc: "Don't clear the console"
 	},
 	debug: {
-		type: `boolean`,
+		type: "boolean",
 		default: false,
-		alias: `d`,
-		desc: `Print debug info`
+		alias: "d",
+		desc: "Print debug info"
 	},
 	version: {
-		type: `boolean`,
-		alias: `v`,
-		desc: `Print CLI version`
+		type: "boolean",
+		alias: "v",
+		desc: "Print CLI version"
 	},
 	project: {
-		type: `boolean`,
-		default: false,
-		alias: `p`,
-		desc: `Create spesific NİBGAT® package`
+		type: "string",
+		alias: "p",
+		desc: "Create spesific NİBGAT® package"
+	},
+	source: {
+		type: "string",
+		alias: "s",
+		desc: "Where will the project be taken from"
 	}
 };
 
 const commands = {
-	help: { desc: `Print help info` }
+	help: { desc: "Print help info" }
 };
 
 const helpText = meowHelp({
-	name: `nbuilder`,
+	name: "nbuilder",
 	flags,
 	commands
 });
