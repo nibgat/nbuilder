@@ -6,12 +6,12 @@ const getProjectInformations = () => {
             .prompt([
                 {
                     name: "projectName",
-                    message: "Project Name: ( ncore-test )"
+                    message: "Project Name: ( ncoretest )"
                 }
             ])
             .then(answers => {
                 resolve({
-                    projectName: answers.projectName || "ncore-test"
+                    projectName: answers.projectName || "ncoretest"
                 });
             })
             .catch((err) => {

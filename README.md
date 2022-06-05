@@ -39,6 +39,6 @@ nbuilder -s nibgat -p nibgat/test
 ```
 
 ###### Currently supported projects: ( project-name: description )
-* ncore-mobile-boilerplate: React-Native project with ncore-mobile + react-navigation.
+* nibgat/ncore-mobile-boilerplate: React-Native project with ncore-mobile + react-navigation.
 
 Developed by NİBGAT®
