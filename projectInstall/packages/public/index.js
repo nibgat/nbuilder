@@ -5,6 +5,7 @@ const simpleGit = require("simple-git");
 const {
     SOURCES
 } = require("../../constants");
+const rmGitFolder = require("../ncore-mobile-boilerplate/steps/rmGitFolder");
 
 const git = simpleGit();
 
@@ -25,7 +26,18 @@ const publicInstall = ({
     }
 
     git.clone(url, directory)
-        .then(() => {
+        .then(async () => {
+            const isRemovedGitFolder = await rmGitFolder(directory);
+            if(!isRemovedGitFolder) {
+                status.stop();
+                console.log(
+                    chalk.blue(
+                       "Git folder didn't removed."
+                    )
+                );
+                return;
+            }
+
             status.stop();
             console.log(
                 chalk.blue(
