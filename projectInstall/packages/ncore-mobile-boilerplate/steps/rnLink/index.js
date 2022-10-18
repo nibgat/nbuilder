@@ -5,9 +5,9 @@ const {
 const rnLink = async (projectName) => {
     let linkCommand;
     if (process.platform === "win32") {
-        linkCommand = `cd ${process.cwd()}\\${projectName} && npx react-native link`;
+        linkCommand = `cd ${process.cwd()}\\${projectName} && npx react-native-asset`;
     } else {
-        linkCommand = `cd ${process.cwd()}/${projectName} && npx react-native link`;
+        linkCommand = `cd ${process.cwd()}/${projectName} && npx react-native-asset`;
     }
   
     return await execute(linkCommand, {
