@@ -3,7 +3,7 @@ const {
 } = require("../../../constants");
 
 const REQUIREMENT_PACKAGES = [
-    'https://github.com/nibgat/ncore-mobile.git#0.1.0-alpha.7',
+    'ncore-mobile',
     'react-native-gesture-handler',
     'react-native-modalize',
     'react-native-portalize',
