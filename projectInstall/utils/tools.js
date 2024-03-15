@@ -22,7 +22,7 @@ const execute = (comm, {
         });
 
         commandProcessing.stdout.on("data", (data) => {
-            if(data.toString().indexOf("y/N") !== -1) {
+            if(process.platform === "win32" && data.toString().indexOf("y/N") !== -1) {
                 if(isWithLoading) status.stop();
             }
             console.log(data.toString());
