@@ -17,6 +17,7 @@ const createNCoreMobileBP = async () => {
   const {
     projectName
   } = await getProjectInformations();
+
   console.log(`\n`);
 
   const rnResponse = await createRNProject(projectName);
