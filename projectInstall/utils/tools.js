@@ -16,12 +16,13 @@ const execute = (comm, {
         const parameters = comm.split(" ");
 
         const commandProcessing = cp.spawn(parameters[0], parameters.slice(1), {
-            cwd: process.cwd(),
-            stdio: ["inherit", "pipe"]
+            shell: process.platform === "win32" ? true : undefined,
+            stdio: ["inherit", "pipe"],
+            cwd: process.cwd()
         });
 
         commandProcessing.stdout.on("data", (data) => {
-            if(data.toString().indexOf("y//N") !== -1) {
+            if(data.toString().indexOf("y/N") !== -1) {
                 if(isWithLoading) status.stop();
             }
             console.log(data.toString());
