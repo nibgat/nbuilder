@@ -3,9 +3,10 @@ const chalk = require('chalk');
 const cp = require('child_process');
 
 const execute = (comm, {
+    isMultipleParameter = false,
     isWithLoading = true,
     successMessage,
-    startMessage
+    startMessage,
 }) => {
     return new Promise((resolve, reject) => {
         const status = new clui.Spinner(startMessage);
@@ -13,50 +14,72 @@ const execute = (comm, {
             status.start();
         }
 
-        const parameters = comm.split(" ");
+        if(isMultipleParameter) {
+            const parameters = comm.split(" ");
 
-        const commandProcessing = cp.spawn(parameters[0], parameters.slice(1), {
-            shell: process.platform === "win32" ? true : undefined,
-            stdio: ["inherit", "pipe"],
-            cwd: process.cwd()
-        });
+            const commandProcessing = cp.spawn(parameters[0], parameters.slice(1), {
+                shell: process.platform === "win32" ? true : undefined,
+                stdio: ["inherit", "pipe"],
+                cwd: process.cwd()
+            });
 
-        commandProcessing.stdout.on("data", (data) => {
-            if(process.platform === "win32" && data.toString().indexOf("y/N") !== -1) {
+            commandProcessing.stdout.on("data", (data) => {
+                if(process.platform === "win32" && data.toString().indexOf("y/N") !== -1) {
+                    if(isWithLoading) status.stop();
+                }
+                console.log(data.toString());
+            });
+
+            commandProcessing.on("close", () => {
                 if(isWithLoading) status.stop();
-            }
-            console.log(data.toString());
-        });
+                console.log(
+                    chalk.blue(
+                        successMessage
+                    )
+                );
+                resolve(true);
+            });
 
-        commandProcessing.on("close", () => {
-            if(isWithLoading) status.stop();
-            console.log(
-                chalk.blue(
-                    successMessage
-                )
-            );
-            resolve(true);
-        });
+            commandProcessing.on("error", (err) => {
+                if(isWithLoading) status.stop();
+                console.log(
+                    chalk.red(
+                        err.toString()
+                    )
+                );
+                reject(false);
+            });
 
-        commandProcessing.on("error", (err) => {
-            if(isWithLoading) status.stop();
-            console.log(
-                chalk.red(
-                    err.toString()
-                )
-            );
-            reject(false);
-        });
-
-        commandProcessing.on("disconnect", (err) => {
-            if(isWithLoading) status.stop();
-            console.log(
-                chalk.red(
-                    err.toString()
-                )
-            );
-            reject(false);
-        });
+            commandProcessing.on("disconnect", (err) => {
+                if(isWithLoading) status.stop();
+                console.log(
+                    chalk.red(
+                        err.toString()
+                    )
+                );
+                reject(false);
+            });
+        } else {
+            cp.exec(comm, (err) => {
+                if(err) {
+                    if(isWithLoading) status.stop();
+                    console.log(
+                        chalk.red(
+                            err.message
+                        )
+                    );
+                    reject(false);
+                }
+    
+                if(isWithLoading) status.stop();
+                console.log(
+                    chalk.blue(
+                        successMessage
+                    )
+                );
+                resolve(true);
+            });
+        }
     });
 };
 
