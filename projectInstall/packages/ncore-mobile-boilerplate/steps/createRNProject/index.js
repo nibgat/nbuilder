@@ -5,7 +5,8 @@ const {
 const createRNProject = async (projectName) => {
     return await execute(`npx react-native init ${projectName}`, {
         successMessage: "✓ React Native project successfully created.",
-        startMessage: "React Native project creating..."
+        startMessage: "React Native project creating...",
+        isMultipleParameter: true
     })
         .then(() => {
             return true;
