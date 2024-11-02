@@ -1,7 +1,7 @@
 {
   "name": "nbuilder",
   "description": "Project or structure builder for NİBGAT® and NİBGAT® | Community.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "bin": {
     "nbuilder": "index.js"
